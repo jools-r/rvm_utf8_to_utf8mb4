@@ -10,7 +10,7 @@
 // file name. Uncomment and edit this line to override:
 
 $plugin['name'] = 'rvm_utf8_to_utf8mb4';
-$plugin['version'] = '0.2';
+$plugin['version'] = '0.3';
 $plugin['author'] = 'Ruud van Melick';
 $plugin['author_uri'] = 'http://vanmelick.com/';
 $plugin['description'] = 'Alter pre-MySQL 5.5.3 tables to use full UTF-8 charset (utf8mb4 instead of utf8)';
