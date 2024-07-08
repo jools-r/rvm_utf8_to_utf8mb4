@@ -131,6 +131,7 @@ function rvm_utf8_to_utf8mb4()
     'txp_plugin',
     'txp_prefs',
     'txp_section',
+    'txp_skin',
     'txp_token',
     'txp_users'
   );
