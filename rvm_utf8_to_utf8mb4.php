@@ -85,14 +85,14 @@ function rvm_utf8_to_utf8mb4()
   if (mysqli_get_server_version($DB->link) < 50503) {
     $error = 'MySQL version is lower than 5.5.3';
   } else {
-    if (false !== strpos(mysqli_get_client_info($DB->link), 'mysqlnd')) {
+    if (false !== strpos(mysqli_get_client_info(), 'mysqlnd')) {
       // mysqlnd 5.0.9+ required
-      if (mysqli_get_client_version($mylink) < 50009) {
+      if (mysqli_get_client_version() < 50009) {
         $error = 'mysqlnd client version is below 5.0.9';
       }
     } else {
       // libmysqlclient 5.5.3+ required
-      if (mysqli_get_client_version($DB->link) < 50503) {
+      if (mysqli_get_client_version() < 50503) {
         $error = 'libmysqlclient version is below 5.5.3';
       }
     }
@@ -101,11 +101,11 @@ function rvm_utf8_to_utf8mb4()
   if (version_compare($dbversion, '4.6.0', '<')) {
     $error = 'Textpattern database version is below 4.6.0. Upgrade Textpattern first';
   }
-  
+
   if ($txpcfg['dbcharset'] == 'latin1') {
     $error = 'dbcharset is latin1, so you have to use the rvm_latin1_to_utf8 plugin first';
   }
-  
+
   if ($error)
   {
     echo graf('The rvm_utf8_to_utf8mb4 plugin has been removed, because your '.$error);
