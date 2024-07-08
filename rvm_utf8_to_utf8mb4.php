@@ -204,12 +204,12 @@ function rvm_utf8_to_utf8mb4()
 
       if (preg_match('/^(char|varchar|tinytext|text|mediumtext|longtext|enum|set)\b/', $Type))
       {
-        $utf8mb4[] = 'MODIFY `'.doSlash($Field).'` '.$Type.' 
-          CHARACTER SET utf8mb4 
+        $utf8mb4[] = 'MODIFY `'.doSlash($Field).'` '.$Type.'
+          CHARACTER SET utf8mb4
           COLLATE utf8mb4_unicode_ci'.
           ($Null == 'YES' ? ' NULL' : ' NOT NULL').
-          ($Default == 'NULL' 
-            ? ((preg_match('/text/', $Type) || $Null == 'NO') ? '' : 'DEFAULT NULL')
+          ($Default == NULL
+            ? ((preg_match('/text/', $Type) || $Null == 'NO') ? '' : ' DEFAULT NULL')
             : " DEFAULT '".doSlash($Default)."'"
           );
       }
